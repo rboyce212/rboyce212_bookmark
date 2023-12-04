@@ -1,24 +1,29 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 const API = import.meta.env.VITE_BASE_URL;
 
-const index = () => {
+const Index = () => {
   const [bookmarks, setBookmarks] = useState([]);
 
   useEffect(() => {
     fetch(`${API}/bookmarks`)
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res);
+        // console.log(res)
         setBookmarks(res);
       });
   }, []);
+
   return (
     <div>
       {bookmarks.map((bookmark) => (
-        <div key={bookmark.id}>{bookmark.name}</div>
+        <div key={bookmark.id}>
+          <Link to={`/bookmarks/${bookmark.id}`}>{bookmark.name}</Link>
+        </div>
       ))}
     </div>
   );
 };
 
-export default index;
+export default Index;

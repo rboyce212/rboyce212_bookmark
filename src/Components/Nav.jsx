@@ -9,10 +9,14 @@ const Nav = () => {
       </Link>
       <ul>
         <li>
-          <Link to={"/bookmarks"}>Bookmarks</Link>
+          <Link to={"/bookmarks"} className="nav">
+            Bookmarks
+          </Link>
         </li>
         <li>
-          <Link to={"/new"}>Create Bookmark</Link>
+          <Link to={"/bookmark/new"} className="nav">
+            Create Bookmark
+          </Link>
         </li>
       </ul>
     </nav>
